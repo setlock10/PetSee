@@ -32,7 +32,8 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
 	console.log('token', data);
 	// Return a second API call
 	// This one uses the token we received for authentication
-	//return fetch('https://api.petfinder.com/v2/animals?page=2', {
+  // Look up query parameters at https://www.petfinder.com/developers/v2/docs/#get-animals
+	//'https://api.petfinder.com/v2/animals?page=2'
   return fetch('https://api.petfinder.com/v2/animals', {
       headers: {
 			'Authorization': data.token_type + ' ' + data.access_token,
