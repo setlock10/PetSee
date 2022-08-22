@@ -3,12 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import PetList from './PetList';
+import {key,secret} from './keys.js'
+
 
 function App() {
 
-  var key='VkyH637uqO9blguY1x4mZZPwemXbHF6kurPHNa7SxqEIJZ3D4d'
-  var secret='EQg7jvg5YIXOo2BvpsmR9KFWbXaYAKDsezQ4xH0O'
-
+ 
 
 const [animals,setAnimals] = useState([])
 // Call the API
@@ -34,7 +34,7 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
 	// This one uses the token we received for authentication
   // Look up query parameters at https://www.petfinder.com/developers/v2/docs/#get-animals
 	//'https://api.petfinder.com/v2/animals?page=2'
-  return fetch('https://api.petfinder.com/v2/animals', {
+  return fetch('https://api.petfinder.com/v2/animals?limit=50', {
       headers: {
 			'Authorization': data.token_type + ' ' + data.access_token,
 			'Content-Type': 'application/x-www-form-urlencoded'

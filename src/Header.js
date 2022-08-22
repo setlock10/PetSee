@@ -3,7 +3,9 @@ import React from 'react';
 function Header(){
 
     return(
-        <div>petSee</div>
+        <div>
+            <h1>petSee</h1>
+        </div>
     )
 
 
