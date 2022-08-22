@@ -1,0 +1,3 @@
+export var key='VkyH637uqO9blguY1x4mZZPwemXbHF6kurPHNa7SxqEIJZ3D4d'
+export var secret='EQg7jvg5YIXOo2BvpsmR9KFWbXaYAKDsezQ4xH0O'
+
