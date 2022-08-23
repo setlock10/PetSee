@@ -2,7 +2,7 @@ function Inquiries(){
 
     return(
         <div>
-            Inquiry Form Goes Here
+            Inquiries and Inquiry Form Goes Here
         </div>
     )
 

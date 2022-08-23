@@ -78,3 +78,12 @@ nav a:active {
     transform: rotate(360deg);
   }
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  border: 2px solid var(--dark-turquoise);
+  padding: 1.75rem;
+}
