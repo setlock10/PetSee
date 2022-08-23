@@ -55,13 +55,22 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
 	// Return the response as JSON
 	return resp.json();
 
-}).then(function (data) {
+}).then(data=> {
 
 	// Log the API data
 	console.log('token', data);
-  let url ='https://api.petfinder.com/v2/animals?limit=50'
+  let kidsQuery=""
+  let catsQuery=""
+  let dogsQuery=""
+  if ((includeCats===true)&&(includeDogs===false)) catsQuery="&type=Cat"
+  if ((includeCats===false)&&(includeDogs===true)) catsQuery="&type=Dog"
 
-  if ((includeCats===true)&&(includeDogs===false))  url='https://api.petfinder.com/v2/animals?limit=50&type=Cat'
+  if (includeKids===true) kidsQuery="&good_with_children=true"
+
+  let url =`https://api.petfinder.com/v2/animals?limit=50${catsQuery}${dogsQuery}${kidsQuery}`
+
+  //if ((includeCats===true)&&(includeDogs===false))  url='https://api.petfinder.com/v2/animals?limit=50&type=Cat'
+  //if ((includeCats===false)&&(includeDogs===true))  url='https://api.petfinder.com/v2/animals?limit=50&type=Dog'
 
 	// Return a second API call
 	// This one uses the token we received for authentication
@@ -83,7 +92,7 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
 	// Log any errors
 	console.log('something went wrong', err);
 });
-},[])
+},[includeCats,includeDogs])
 
 function handleCatClick() {
   setIncludeCats(!includeCats)
