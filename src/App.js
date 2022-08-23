@@ -68,7 +68,17 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
   // Look up query parameters at https://www.petfinder.com/developers/v2/docs/#get-animals
 	//'https://api.petfinder.com/v2/animals?page=2'
   setTokenData(data)
-  return getAnimals ()
+  return fetch(url, {
+    headers: {
+    'Authorization': data.token_type + ' ' + data.access_token,
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+})
+.then (res=>res.json())
+.then (data=>{
+  console.log(data.animals)
+  setAnimals(data.animals)
+})
 }).catch(function (err) {
 	// Log any errors
 	console.log('something went wrong', err);
@@ -77,6 +87,7 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
 
 function handleCatClick() {
   setIncludeCats(!includeCats)
+  
   
 }
 
