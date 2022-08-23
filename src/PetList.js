@@ -1,10 +1,10 @@
 import PetCard from "./PetCard";
 
-function PetList({animals,includeCats,includeDogs,includeKids,handleCatClick,handleDogClick,handleKidClick}){
+function PetList({setSelectedAnimal,setPage,animals,includeCats,includeDogs,includeKids,handleCatClick,handleDogClick,handleKidClick}){
 
     let petCards= animals.map(animal=>{
         if(animal.primary_photo_cropped!==null)
-        return <PetCard key={animal.id} animal={animal} />
+        return <PetCard setSelectedAnimal={setSelectedAnimal}  setPage={setPage} key={animal.id} animal={animal} />
     })
 
     return(

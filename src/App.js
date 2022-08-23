@@ -114,16 +114,18 @@ function handleKidClick() {
   setIncludeKids(!includeKids)
 }
 
+const [selectedAnimal,setSelectedAnimal]=useState({})
+
 const [page, setPage] = useState("/")
    
 function getCurrentPage() {
   switch(page) {
       case "/":
-          return <PetList animals={animals} includeCats={includeCats} includeDogs={includeDogs} includeKids={includeKids} handleCatClick={handleCatClick} handleDogClick={handleDogClick} handleKidClick={handleKidClick} />
+          return <PetList  setSelectedAnimal={setSelectedAnimal} setPage={setPage} animals={animals} includeCats={includeCats} includeDogs={includeDogs} includeKids={includeKids} handleCatClick={handleCatClick} handleDogClick={handleDogClick} handleKidClick={handleKidClick} />
       case "/about":
           return <About />
       case "/inquiries":
-          return <Inquiries />
+          return <Inquiries selectedAnimal={selectedAnimal}/>
       default:
           return <NotFound />
   }
