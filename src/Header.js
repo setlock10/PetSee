@@ -5,7 +5,7 @@ function Header(){
     return(
         <div>
             <h1>petSee</h1>
-        </div>
+         </div>
     )
 
 

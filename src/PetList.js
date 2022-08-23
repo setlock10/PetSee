@@ -19,7 +19,7 @@ function PetList({animals,includeCats,includeDogs,includeKids,handleCatClick,han
                 <label >Good with children</label>
                 
             </div>
-            <div>{petCards}</div>
+            <div className="ui grid container">{petCards}</div>
         </div>
     )
 
