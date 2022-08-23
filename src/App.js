@@ -7,6 +7,7 @@ import {key,secret} from './keys.js'
 import About from "./About";
 import Inquiries from "./Inquiries";
 import NavBar from './NavBar';
+import NotFound from './NotFound';
 
 
 
@@ -124,7 +125,7 @@ function getCurrentPage() {
       case "/inquiries":
           return <Inquiries />
       default:
-          return <h1>404 not found</h1>
+          return <NotFound />
   }
 }
 
