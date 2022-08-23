@@ -13,6 +13,48 @@
   }
 }
 
+.petTile {
+  display: inline;
+  background-repeat: no-repeat;
+  background-position: center 90%;
+  float: left;
+  margin: 2%;
+  padding: 1%;
+  outline: #3B0B0B solid thick;
+  transition: 0.75s;
+  opacity: 1;
+}
+
+.petTile:hover {
+  transform: scale(1.05);
+}
+
+
+
+nav a {
+  display: inline-block;
+  margin: 1rem 2rem;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: firebrick;
+  border-bottom: 2px solid firebrick;
+  transition: 0.1s;
+}
+
+nav a:hover,
+nav a:active {
+  color: tomato;
+  border-bottom: 2px solid tomato;
+}
+
+
+.minPetTile {
+  width: 250px;
+  height: 600px;
+  background-size: cover;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

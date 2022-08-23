@@ -4,6 +4,11 @@ import './App.css';
 import Header from './Header';
 import PetList from './PetList';
 import {key,secret} from './keys.js'
+import About from "./About";
+import Inquiries from "./Inquiries";
+import NavBar from './NavBar';
+
+
 
 
 function App() {
@@ -12,32 +17,32 @@ function App() {
  const [includeDogs,setIncludeDogs] = useState(true)
  const [includeKids,setIncludeKids] = useState(false)
  
-const [tokenData,setTokenData]=useState({})
+//const [tokenData,setTokenData]=useState({})
 const [animals,setAnimals] = useState([])
 // Call the API
 // This is a POST request, because we need the API to generate a new token for us
 
-function getAnimals (){
-  let url ='https://api.petfinder.com/v2/animals?limit=50'
+// function getAnimals (){
+//   let url ='https://api.petfinder.com/v2/animals?limit=50'
 
-  if ((includeCats===true)&&(includeDogs===false))  url='https://api.petfinder.com/v2/animals?limit=50&type=Cat'
-  fetch(url, {
-    headers: {
-    'Authorization': tokenData.token_type + ' ' + tokenData.access_token,
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
-})
-.then (res=>res.json())
-.then (data=>{
-  console.log(data.animals)
-  setAnimals(data.animals)
-})
-.catch(function (err) {
-// Log any errors
-console.log('something went wrong', err);
-});
+//   if ((includeCats===true)&&(includeDogs===false))  url='https://api.petfinder.com/v2/animals?limit=50&type=Cat'
+//   fetch(url, {
+//     headers: {
+//     'Authorization': tokenData.token_type + ' ' + tokenData.access_token,
+//     'Content-Type': 'application/x-www-form-urlencoded'
+//   }
+// })
+// .then (res=>res.json())
+// .then (data=>{
+//   console.log(data.animals)
+//   setAnimals(data.animals)
+// })
+// .catch(function (err) {
+// // Log any errors
+// console.log('something went wrong', err);
+// });
 
-}
+// }
 
 
 
@@ -76,7 +81,7 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
 	// This one uses the token we received for authentication
   // Look up query parameters at https://www.petfinder.com/developers/v2/docs/#get-animals
 	//'https://api.petfinder.com/v2/animals?page=2'
-  setTokenData(data)
+  //setTokenData(data)
   return fetch(url, {
     headers: {
     'Authorization': data.token_type + ' ' + data.access_token,
@@ -92,7 +97,7 @@ fetch('https://api.petfinder.com/v2/oauth2/token', {
 	// Log any errors
 	console.log('something went wrong', err);
 });
-},[includeCats,includeDogs])
+},[includeCats,includeDogs,includeKids])
 
 function handleCatClick() {
   setIncludeCats(!includeCats)
@@ -108,14 +113,28 @@ function handleKidClick() {
   setIncludeKids(!includeKids)
 }
 
-
+const [page, setPage] = useState("/")
+   
+function getCurrentPage() {
+  switch(page) {
+      case "/":
+          return <PetList animals={animals} includeCats={includeCats} includeDogs={includeDogs} includeKids={includeKids} handleCatClick={handleCatClick} handleDogClick={handleDogClick} handleKidClick={handleKidClick} />
+      case "/about":
+          return <About />
+      case "/inquiries":
+          return <Inquiries />
+      default:
+          return <h1>404 not found</h1>
+  }
+}
 
 
   return (
     <div className="App">
       <Header />
-      <PetList animals={animals} includeCats={includeCats} includeDogs={includeDogs} includeKids={includeKids} handleCatClick={handleCatClick} handleDogClick={handleDogClick} handleKidClick={handleKidClick} />
-    </div>
+      <NavBar onChangePage={setPage}/>
+      {getCurrentPage()}
+   </div>
   );
 }
 
