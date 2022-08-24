@@ -1,14 +1,14 @@
+
 .App {
   text-align: center;
-  background-image: "./pet-background-cartoon.jpg";
-  background-size: cover;
   /* background-color: #3B0B0B; */
 
 }
 body{
-  background-image: "./pet-background-cartoon.jpg";
+  background-image: url(./images/pet-background-cartoon.jpg);
   /* background-size: cover; */
   /* background-color: #3B0B0B */
+  
 }
 
 
@@ -38,6 +38,7 @@ body{
   outline: #3B0B0B solid thick;
   transition: 0.75s;
   opacity: 1;
+  background-color: azure;
 }
 .sidebar {
   min-height: 100vh;
@@ -70,6 +71,7 @@ body{
   outline: #3B0B0B solid thick;
   transition: 0.75s;
   opacity: 1;
+  background-color: antiquewhite;
 
 }
 
@@ -83,6 +85,7 @@ nav a {
   color: firebrick;
   border-bottom: 2px solid firebrick;
   transition: 0.1s;
+  background-color: #e5fdff;
 }
 
 nav a:hover,
@@ -96,6 +99,7 @@ nav a:active {
   width: 250px;
   height: 600px;
   background-size: cover;
+  background-color: antiquewhite;
 }
 
 
@@ -132,4 +136,7 @@ nav a:active {
   padding: 1.75rem;
   left: 25px;
   position: absolute;
+  background-color: antiquewhite;
+  outline: #3B0B0B solid thick;
+
 }

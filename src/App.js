@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import logo from './logo.svg';
+import bkrnd from './images/pet-background-cartoon.jpg'
 import './App.css';
 import Header from './Header';
 import PetList from './PetList';
