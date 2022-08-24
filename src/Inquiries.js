@@ -1,9 +1,22 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import InquiryCard from './InquiryCard';
 
-function Inquiries({selectedAnimal,inquiryData}){
+function Inquiries({selectedAnimal}){
 
-   
+    //Fetch Inquiries
+ const [inquiryData,setInquirydata]=useState([])
+
+
+ useEffect(()=>{
+     fetch ('https://petsee-json-server.herokuapp.com/inquiries')
+         .then(res=>res.json())
+         .then(data=>{
+             //console.log(data)
+             setInquirydata(data)
+             
+         })
+ },[])
+
     let inquiryCards=inquiryData.map(inquiry=>{
         return <InquiryCard key={inquiry.id} inquiry={inquiry} />
     })
@@ -37,6 +50,7 @@ function Inquiries({selectedAnimal,inquiryData}){
             .then(res=>res.json())
             .then(data=>{
                 console.log(data)
+                setInquirydata([...inquiryData,data])
                 
             })
             .catch(e=>console.error(e))
