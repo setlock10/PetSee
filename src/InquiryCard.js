@@ -2,8 +2,8 @@ function InquiryCard({inquiry}){
     console.log(inquiry)
 
     return(
-        <div  className="ui four wide column">
-            <div  className="ui card petTile minPetTile">
+        <div  className="inquiryList">
+            <div  className="ui card inquiryTile">
                 <h2>{inquiry.petName}</h2>
                 <img height="250"  alt={inquiry.name} src={inquiry.petImage} />
                 <p>{inquiry.name}</p>
