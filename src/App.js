@@ -108,7 +108,7 @@ function getCurrentPage() {
 }
 
   return (
-    <div className="App">
+    <div style={{'background-color': "white"}} className="App">
       <Header />
       <NavBar onChangePage={setPage}/>
       {getCurrentPage()}
