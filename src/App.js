@@ -75,19 +75,6 @@ function App() {
             });
             },[includeCats,includeDogs,includeKids])
 
- //Fetch Inquiries
- const [inquiryData,setInquirydata]=useState([])
-
-
- useEffect(()=>{
-     fetch ('https://petsee-json-server.herokuapp.com/inquiries')
-         .then(res=>res.json())
-         .then(data=>{
-             //console.log(data)
-             setInquirydata(data)
-             
-         })
- },[])
 
 //Page Switching
 const [selectedAnimal,setSelectedAnimal]=useState({name:"",id:"",primary_photo_cropped:{full:""}})
@@ -101,7 +88,7 @@ function getCurrentPage() {
       case "/about":
           return <About />
       case "/inquiries":
-          return <Inquiries selectedAnimal={selectedAnimal} inquiryData={inquiryData} />
+          return <Inquiries selectedAnimal={selectedAnimal}  />
       default:
           return <NotFound />
   }
