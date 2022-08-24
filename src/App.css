@@ -71,7 +71,7 @@ body{
   outline: #3B0B0B solid thick;
   transition: 0.75s;
   opacity: 1;
-  background-color: antiquewhite;
+  background-color: azure;
 
 }
 
@@ -98,7 +98,7 @@ nav a:active {
   width: 250px;
   height: 600px;
   background-size: cover;
-  background-color: antiquewhite;
+  background-color:azure;
 }
 
 
