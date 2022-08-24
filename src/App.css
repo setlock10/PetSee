@@ -1,6 +1,16 @@
 .App {
   text-align: center;
+  background-image: "./pet-background-cartoon.jpg";
+  background-size: cover;
+  /* background-color: #3B0B0B; */
+
 }
+body{
+  background-image: "./pet-background-cartoon.jpg";
+  /* background-size: cover; */
+  /* background-color: #3B0B0B */
+}
+
 
 .App-logo {
   height: 40vmin;
