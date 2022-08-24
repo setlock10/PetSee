@@ -6,7 +6,7 @@ function NavBar({onChangePage}){
     }
 
     return(
-        <nav>
+        <nav style={{'background-color': "white"}}>
             <a onClick={(e)=>handleLinkClick(e)}  href="/">Home</a>
             <a onClick={(e)=>handleLinkClick(e)} href="/inquiries">Inquires</a>
             <a onClick={(e)=>handleLinkClick(e)} href="/about">About</a>

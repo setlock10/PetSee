@@ -85,7 +85,6 @@ nav a {
   color: firebrick;
   border-bottom: 2px solid firebrick;
   transition: 0.1s;
-  background-color: #e5fdff;
 }
 
 nav a:hover,
