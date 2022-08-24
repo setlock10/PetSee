@@ -5,10 +5,6 @@ function PetCard ({setPage,animal,setSelectedAnimal}){
 
         setPage("/inquiries")
         setSelectedAnimal(animal)
-
-
-
-
     }
     return (
     <div  className="ui four wide column">
