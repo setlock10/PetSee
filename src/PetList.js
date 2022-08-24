@@ -9,7 +9,7 @@ function PetList({setSelectedAnimal,setPage,animals,includeCats,includeDogs,incl
 
     return(
         
-        <div>
+        <div className="petList">
             <div>
                 <input onChange={()=>handleCatClick()} namme="cats" type="checkbox" checked={includeCats}/>
                 <label >Cats</label>
@@ -19,7 +19,7 @@ function PetList({setSelectedAnimal,setPage,animals,includeCats,includeDogs,incl
                 <label >Good with children</label>
                 
             </div>
-            <div className="ui grid container">{petCards}</div>
+            <div  >{petCards}</div>
         </div>
     )
 

@@ -1,3 +1,6 @@
+import catpic from './images/notfound.jpg'
+
+
 function PetCard ({setPage,animal,setSelectedAnimal}){
     //console.log(animal)
 
