@@ -47,30 +47,32 @@ function Inquiries({selectedAnimal,inquiryData}){
 
     return(
         <div>
-            <h1>Inquiries</h1>
-            <form className="form" onSubmit={(e)=>handleSubmit(e)}>
-                <label>{"You're Interested in Adopting "+selectedAnimal.name}</label>
-                <label>{"Pet ID: "+selectedAnimal.id}</label>
-                <img width="250"  alt={selectedAnimal.name} src={selectedAnimal.primary_photo_cropped.full} />
-                <label htmlFor="name">Enter Your Name</label>
-                <input 
-                    type="text"
-                    id="name"
-                    name="name"
-                    onChange={(e)=>handleNameChange(e)}
-                    value={formName}
-                />
-               <label htmlFor="name">Enter Your Email Address</label>
-                <input 
-                    type="text"
-                    id="name"
-                    name="name"
-                    onChange={(e)=>handleEmailChange(e)}
-                    value={formEmail}
-                />
-                 <button type="submit">Inquire About Adopting</button>
-             </form>
+            <div className='sideBar'>
+                <form className="form" onSubmit={(e)=>handleSubmit(e)}>
+                    <label>{"You're Interested in Adopting "+selectedAnimal.name}</label>
+                    <label>{"Pet ID: "+selectedAnimal.id}</label>
+                    <img width="250"  alt={selectedAnimal.name} src={selectedAnimal.primary_photo_cropped.full} />
+                    <label htmlFor="name">Enter Your Name</label>
+                    <input 
+                        type="text"
+                        id="name"
+                        name="name"
+                        onChange={(e)=>handleNameChange(e)}
+                        value={formName}
+                    />
+                <label htmlFor="name">Enter Your Email Address</label>
+                    <input 
+                        type="text"
+                        id="name"
+                        name="name"
+                        onChange={(e)=>handleEmailChange(e)}
+                        value={formEmail}
+                    />
+                    <button type="submit">Inquire About Adopting</button>
+                </form>
+            </div>
              <div className='inquiryList'>
+                <h1>Inquiries</h1>
                 {inquiryCards}
              </div>
         </div>
