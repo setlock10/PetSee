@@ -28,6 +28,25 @@
 .petTile:hover {
   transform: scale(1.05);
 }
+.inquiryList{
+   margin-top: 300px;
+  
+}
+.inquiryTile{
+  /* position: absolute; */
+  /* left:350; */
+  display: inline;
+  width: 650px;
+  background-repeat: no-repeat;
+  background-position: center 90%;
+  float: left;
+  margin: 2%;
+  padding: 1%;
+  outline: #3B0B0B solid thick;
+  transition: 0.75s;
+  opacity: 1;
+
+}
 
 
 
@@ -82,8 +101,10 @@ nav a:active {
 .form {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 350px;
   margin: 0 auto;
   border: 2px solid var(--dark-turquoise);
   padding: 1.75rem;
+  left: 25px;
+  position: absolute;
 }

@@ -14,7 +14,7 @@ import NotFound from './NotFound';
 
 function App() {
 
-    // State and Callback functions for the checkboxes
+    // Setting State and Callback functions for the checkboxes
     const [includeCats,setIncludeCats] = useState(true)
     const [includeDogs,setIncludeDogs] = useState(true)
     const [includeKids,setIncludeKids] = useState(false)
@@ -32,7 +32,7 @@ function App() {
     }
 
 
-    // State and Fetching the Pets
+    // Setting State and Fetching the Pets
     const [animals,setAnimals] = useState([])
     
     // This is a POST request, because we need the API to generate a new token for us
@@ -74,9 +74,22 @@ function App() {
             });
             },[includeCats,includeDogs,includeKids])
 
+ //Fetch Inquiries
+ const [inquiryData,setInquirydata]=useState([])
+
+
+ useEffect(()=>{
+     fetch ('https://petsee-json-server.herokuapp.com/inquiries')
+         .then(res=>res.json())
+         .then(data=>{
+             //console.log(data)
+             setInquirydata(data)
+             
+         })
+ },[])
 
 //Page Switching
-const [selectedAnimal,setSelectedAnimal]=useState({})
+const [selectedAnimal,setSelectedAnimal]=useState({name:"",id:"",primary_photo_cropped:{full:""}})
 
 const [page, setPage] = useState("/")
    
@@ -87,7 +100,7 @@ function getCurrentPage() {
       case "/about":
           return <About />
       case "/inquiries":
-          return <Inquiries selectedAnimal={selectedAnimal}/>
+          return <Inquiries selectedAnimal={selectedAnimal} inquiryData={inquiryData} />
       default:
           return <NotFound />
   }

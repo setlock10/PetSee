@@ -18,7 +18,7 @@ function PetCard ({setPage,animal,setSelectedAnimal}){
             <h3>{animal.tags[0]}</h3>
             <button onClick={()=>handleClick()}>Inquire</button>
         </div>
-        </div>
+    </div>
     )
     
     }
