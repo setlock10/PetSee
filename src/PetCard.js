@@ -1,5 +1,11 @@
-function PetCard ({animal}){
-    console.log(animal)
+function PetCard ({setPage,animal,setSelectedAnimal}){
+    //console.log(animal)
+
+    function handleClick (){
+
+        setPage("/inquiries")
+        setSelectedAnimal(animal)
+    }
     return (
     <div  className="ui four wide column">
         <div  className="ui card petTile minPetTile">
@@ -10,7 +16,7 @@ function PetCard ({animal}){
             <p>{animal.age}</p>
             <p>{animal.description}</p>
             <h3>{animal.tags[0]}</h3>
-            <button>Inquire</button>
+            <button onClick={()=>handleClick()}>Inquire</button>
         </div>
         </div>
     )
