@@ -13,6 +13,11 @@
   }
 }
 
+.petCardImage{
+  height: 250px;
+   width:250px; 
+  object-fit: cover;
+}
 .petTile {
   display: inline;
   background-repeat: no-repeat;
@@ -24,12 +29,22 @@
   transition: 0.75s;
   opacity: 1;
 }
+.sidebar {
+  min-height: 100vh;
+  min-width: 12em;
+  width: 28%;
+  border-right: solid black 1px;
+  background: #e5fdff;
+  padding: 1em;
+}
 
 .petTile:hover {
   transform: scale(1.05);
 }
 .inquiryList{
-   margin-top: 300px;
+  max-width: 30em;
+  margin: auto;
+
   
 }
 .inquiryTile{

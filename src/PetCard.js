@@ -11,7 +11,7 @@ function PetCard ({setPage,animal,setSelectedAnimal}){
         <div  className="ui card petTile minPetTile">
             <h2>{animal.name}</h2>
             {/* <h3>{animal.status}</h3> */}
-            <img height="250"  alt={animal.name} src={animal.primary_photo_cropped.full} />
+            <img className="petCardImage"   alt={animal.name} src={animal.primary_photo_cropped.full} />
             <p>{animal.gender}</p>
             <p>{animal.age}</p>
             <p>{animal.description}</p>
