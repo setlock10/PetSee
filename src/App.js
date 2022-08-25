@@ -149,7 +149,7 @@ const [page, setPage] = useState("/")
                 <Inquiries selectedAnimal={selectedAnimal} setSelectedAnimal={setSelectedAnimal} />
                 </Route>
                 <Route exact path="/">
-                <PetList  setSelectedAnimal={setSelectedAnimal} setPage={setPage} animals={animals} includeCats={includeCats} includeDogs={includeDogs} includeKids={includeKids} handleCatClick={handleCatClick} handleDogClick={handleDogClick} handleKidClick={handleKidClick} />
+                <PetList  setSelectedAnimal={setSelectedAnimal} page={page} setPage={setPage} animals={animals} includeCats={includeCats} includeDogs={includeDogs} includeKids={includeKids} handleCatClick={handleCatClick} handleDogClick={handleDogClick} handleKidClick={handleKidClick} />
                 </Route>
                 <Route path="*">
                 <NotFound />
