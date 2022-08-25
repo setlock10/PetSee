@@ -12,9 +12,9 @@ function NavBar({onChangePage}){
             {/* <a onClick={(e)=>handleLinkClick(e)}  href="/">Home</a>
             <a onClick={(e)=>handleLinkClick(e)} href="/inquiries">Inquires</a>
             <a onClick={(e)=>handleLinkClick(e)} href="/about">About</a> */}
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink to="/inquiries">Inquiries</NavLink>
-            <NavLink to="/about">About</NavLink>
+            <NavLink exact to="/petsee">Home</NavLink>
+            <NavLink to="/petsee/inquiries">Inquiries</NavLink>
+            <NavLink to="/petsee/about">About</NavLink>
             
 
         </nav>

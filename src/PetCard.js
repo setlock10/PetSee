@@ -7,8 +7,8 @@ function PetCard ({page,setPage,animal,setSelectedAnimal}){
     function handleClick (){
 
         //console.log(page)
-        setPage("/inquiries")
-        setSelectedAnimal(animal)
+         setSelectedAnimal(animal)
+         setPage("/petsee/inquiries")
         history.push(page)
     }
     return (
