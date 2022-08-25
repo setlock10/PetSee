@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import InquiryCard from './InquiryCard';
 
-function Inquiries({selectedAnimal}){
+function Inquiries({selectedAnimal,setSelectedAnimal}){
 
     //Fetch Inquiries
  const [inquiryData,setInquirydata]=useState([])
@@ -51,7 +51,9 @@ function Inquiries({selectedAnimal}){
             .then(data=>{
                 console.log(data)
                 setInquirydata([...inquiryData,data])
-                
+                setSelectedAnimal({name:"",id:"",primary_photo_cropped:{full:""}})
+                setFormEmail("")
+                setFormName("")
             })
             .catch(e=>console.error(e))
     }

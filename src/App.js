@@ -9,6 +9,7 @@ import About from "./About";
 import Inquiries from "./Inquiries";
 import NavBar from './NavBar';
 import NotFound from './NotFound';
+import { Switch, Route } from "react-router-dom";
 
 
 
@@ -32,6 +33,60 @@ function App() {
       setIncludeKids(!includeKids)
     }
 
+    // Get location using navigator
+    const [displayCurrentAddress, setDisplayCurrentAddress] = useState(
+      'Wait, we are fetching you location...'
+    );
+
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+    function success(pos) {
+      var crd = pos.coords;
+    
+      console.log("Your current position is:");
+      console.log(`Latitude : ${crd.latitude}`);
+      console.log(`Longitude: ${crd.longitude}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+    }
+    
+    function errors(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+    
+
+   if( navigator.geolocation){
+    console.log("great")
+    navigator.permissions
+    .query({ name: "geolocation" })
+    .then(function (result) {
+      if (result.state === "granted") {
+        console.log(result.state);
+        console.log(result);
+        //If granted then you can directly call your function here
+        navigator.geolocation.getCurrentPosition(success, errors, options);
+        // let address = `${item.name}, ${item.street}, ${item.postalCode}, ${item.city}`;
+
+        // setDisplayCurrentAddress(address);
+      } else if (result.state === "prompt") {
+        console.log(result.state);
+        navigator.geolocation.getCurrentPosition(success, errors, options);
+        
+      } else if (result.state === "denied") {
+        //If denied then you have to show instructions to enable location
+      }
+      result.onchange = function () {
+        console.log(result.state);
+      };
+    });
+} else {
+  alert("Sorry Not available!");
+}
+
+
+ 
 
     // Setting State and Fetching the Pets
     const [animals,setAnimals] = useState([])
@@ -54,7 +109,7 @@ function App() {
           if ((includeCats===true)&&(includeDogs===false)) catsQuery="&type=Cat"
           if ((includeCats===false)&&(includeDogs===true)) catsQuery="&type=Dog"
           if (includeKids===true) kidsQuery="&good_with_children=true"
-          let url =`https://api.petfinder.com/v2/animals?limit=50${catsQuery}${dogsQuery}${kidsQuery}`
+          let url =`https://api.petfinder.com/v2/animals?limit=100${catsQuery}${dogsQuery}${kidsQuery}`
 
   
 	// The second fetch uses the token we received for authentication
@@ -81,24 +136,25 @@ const [selectedAnimal,setSelectedAnimal]=useState({name:"",id:"",primary_photo_c
 
 const [page, setPage] = useState("/")
    
-function getCurrentPage() {
-  switch(page) {
-      case "/":
-          return <PetList  setSelectedAnimal={setSelectedAnimal} setPage={setPage} animals={animals} includeCats={includeCats} includeDogs={includeDogs} includeKids={includeKids} handleCatClick={handleCatClick} handleDogClick={handleDogClick} handleKidClick={handleKidClick} />
-      case "/about":
-          return <About />
-      case "/inquiries":
-          return <Inquiries selectedAnimal={selectedAnimal}  />
-      default:
-          return <NotFound />
-  }
-}
 
   return (
     <div style={{'background-color': "white"}} className="App">
       <Header />
       <NavBar onChangePage={setPage}/>
-      {getCurrentPage()}
+      <Switch>
+                <Route path="/about">
+                    <About />
+                </Route>
+                <Route path="/inquiries">
+                <Inquiries selectedAnimal={selectedAnimal} setSelectedAnimal={setSelectedAnimal} />
+                </Route>
+                <Route exact path="/">
+                <PetList  setSelectedAnimal={setSelectedAnimal} setPage={setPage} animals={animals} includeCats={includeCats} includeDogs={includeDogs} includeKids={includeKids} handleCatClick={handleCatClick} handleDogClick={handleDogClick} handleKidClick={handleKidClick} />
+                </Route>
+                <Route path="*">
+                <NotFound />
+                </Route>
+            </Switch>
    </div>
   );
 }
