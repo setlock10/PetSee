@@ -1,12 +1,15 @@
+import { useHistory } from "react-router-dom";
 
-
-function PetCard ({setPage,animal,setSelectedAnimal}){
+function PetCard ({page,setPage,animal,setSelectedAnimal}){
     //console.log(animal)
-
+    let history = useHistory();
+    
     function handleClick (){
 
+        //console.log(page)
         setPage("/inquiries")
         setSelectedAnimal(animal)
+        history.push(page)
     }
     return (
     <div  className="ui four wide column">
