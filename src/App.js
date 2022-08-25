@@ -134,7 +134,7 @@ function App() {
 //Page Switching
 const [selectedAnimal,setSelectedAnimal]=useState({name:"",id:"",primary_photo_cropped:{full:""}})
 
-const [page, setPage] = useState("/")
+const [page, setPage] = useState("/petsee")
    
 
   return (
@@ -142,13 +142,13 @@ const [page, setPage] = useState("/")
       <Header />
       <NavBar onChangePage={setPage}/>
       <Switch>
-                <Route path="/about">
+                <Route path="/petsee/about">
                     <About />
                 </Route>
-                <Route path="/inquiries">
+                <Route path="/petsee/inquiries">
                 <Inquiries selectedAnimal={selectedAnimal} setSelectedAnimal={setSelectedAnimal} />
                 </Route>
-                <Route exact path="/">
+                <Route exact path="/petsee">
                 <PetList  setSelectedAnimal={setSelectedAnimal} page={page} setPage={setPage} animals={animals} includeCats={includeCats} includeDogs={includeDogs} includeKids={includeKids} handleCatClick={handleCatClick} handleDogClick={handleDogClick} handleKidClick={handleKidClick} />
                 </Route>
                 <Route path="*">
