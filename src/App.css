@@ -117,13 +117,11 @@ nav a:active {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.notFoundImage{
+  width: 600px;
+  outline: #3B0B0B solid thick;
 }
 
 .form {
